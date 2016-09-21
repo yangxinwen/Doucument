@@ -1,0 +1,514 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="RakeBackModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ArticleInfo">
+          <Key>
+            <PropertyRef Name="ArticleId" />
+          </Key>
+          <Property Name="ArticleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ArticleTitle" Type="varchar(max)" />
+          <Property Name="ArticleContent" Type="text" />
+          <Property Name="ArticleDate" Type="datetime" />
+          <Property Name="Author" Type="varchar(max)" />
+          <Property Name="IsEnable" Type="int" />
+          <Property Name="IsTop" Type="int" />
+          <Property Name="IsNew" Type="int" />
+          <Property Name="IsHot" Type="int" />
+          <Property Name="Remark" Type="varchar(max)" />
+          <Property Name="AddUser" Type="int" />
+          <Property Name="MenuId" Type="int" />
+        </EntityType>
+        <EntityType Name="BankInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="bankName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="bankValue" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ErrorInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="message" Type="text" />
+          <Property Name="createtime" Type="date" />
+        </EntityType>
+        <EntityType Name="FlowInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="orderid" Type="nvarchar" MaxLength="255" />
+          <Property Name="ip" Type="nvarchar" MaxLength="255" />
+          <Property Name="optypes" Type="nvarchar" MaxLength="255" />
+          <Property Name="createtime" Type="datetime" />
+          <Property Name="info" Type="ntext" />
+        </EntityType>
+        <EntityType Name="MenuInfo">
+          <Key>
+            <PropertyRef Name="MenuId" />
+          </Key>
+          <Property Name="MenuId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MenuName" Type="varchar(max)" />
+          <Property Name="IsEnable" Type="int" />
+          <Property Name="Remark" Type="varchar(max)" />
+          <Property Name="MenuDate" Type="datetime" />
+          <Property Name="AddUser" Type="int" />
+          <Property Name="OrderNum" Type="int" />
+        </EntityType>
+        <EntityType Name="OperInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userId" Type="int" Nullable="false" />
+          <Property Name="userName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ip" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="createtime" Type="datetime" Nullable="false" />
+          <Property Name="info" Type="ntext" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="orderid" Type="nvarchar" MaxLength="50" />
+          <Property Name="batchno" Type="nvarchar" MaxLength="50" />
+          <Property Name="amount" Type="nvarchar" MaxLength="50" />
+          <Property Name="createtime" Type="datetime" />
+          <Property Name="submittime" Type="datetime" />
+          <Property Name="batchContent" Type="nvarchar" MaxLength="50" />
+          <Property Name="uid" Type="int" />
+          <Property Name="orderstatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="remark" Type="nvarchar" MaxLength="500" />
+          <Property Name="iseable" Type="nvarchar" MaxLength="50" />
+          <Property Name="updatetime" Type="datetime" />
+          <Property Name="createBank" Type="varchar" MaxLength="50" />
+          <Property Name="branchBank" Type="varchar" MaxLength="100" />
+          <Property Name="branchBankZH" Type="varchar" MaxLength="150" />
+          <Property Name="bankNumber" Type="varchar" MaxLength="50" />
+          <Property Name="belongTo" Type="varchar" MaxLength="50" />
+          <Property Name="api" Type="varchar" MaxLength="50" />
+          <Property Name="userName" Type="nvarchar" MaxLength="50" />
+          <Property Name="loginId" Type="nvarchar" MaxLength="50" />
+          <Property Name="inputPerson" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PowerInfo">
+          <Key>
+            <PropertyRef Name="PowerId" />
+          </Key>
+          <Property Name="PowerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PowerName" Type="varchar(max)" />
+          <Property Name="MenuId" Type="int" />
+          <Property Name="IsEnable" Type="int" />
+          <Property Name="Remark" Type="varchar(max)" />
+          <Property Name="PowerDate" Type="datetime" />
+          <Property Name="AddUser" Type="int" />
+          <Property Name="IsLeft" Type="int" />
+          <Property Name="PageUrl" Type="varchar(max)" />
+          <Property Name="OrderNum" Type="int" />
+        </EntityType>
+        <EntityType Name="RoleInfo">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="varchar(max)" />
+          <Property Name="PowerStr" Type="varchar(max)" />
+          <Property Name="IsEnable" Type="int" />
+          <Property Name="Remark" Type="varchar(max)" />
+          <Property Name="RoleDate" Type="datetime" />
+          <Property Name="AddUser" Type="int" />
+          <Property Name="OrderNum" Type="int" />
+        </EntityType>
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="userId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userName" Type="varchar(max)" />
+          <Property Name="userPhone" Type="varchar" MaxLength="50" />
+          <Property Name="userPwd" Type="varchar(max)" />
+          <Property Name="remark" Type="varchar(max)" />
+          <Property Name="roleId" Type="int" />
+          <Property Name="loginId" Type="varchar" MaxLength="50" />
+          <Property Name="createBank" Type="varchar" MaxLength="50" />
+          <Property Name="branchBank" Type="varchar" MaxLength="100" />
+          <Property Name="branchBankZH" Type="varchar" MaxLength="150" />
+          <Property Name="bankNumber" Type="varchar" MaxLength="50" />
+          <Property Name="belongTo" Type="varchar" MaxLength="50" />
+          <Property Name="createtime" Type="varchar" MaxLength="50" />
+          <Property Name="updatetime" Type="varchar" MaxLength="50" />
+          <Property Name="iseable" Type="varchar" MaxLength="50" />
+          <Property Name="api" Type="varchar" MaxLength="50" />
+          <Property Name="isUpdatePass" Type="varchar" MaxLength="50" />
+          <Property Name="inputPerson" Type="varchar" MaxLength="50" />
+          <Property Name="province" Type="varchar" MaxLength="50" />
+          <Property Name="city" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="RakeBackModelStoreContainer">
+          <EntitySet Name="ArticleInfo" EntityType="Self.ArticleInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BankInfo" EntityType="Self.BankInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ErrorInfo" EntityType="Self.ErrorInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FlowInfo" EntityType="Self.FlowInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MenuInfo" EntityType="Self.MenuInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OperInfo" EntityType="Self.OperInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderInfo" EntityType="Self.OrderInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PowerInfo" EntityType="Self.PowerInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RoleInfo" EntityType="Self.RoleInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RakeBackModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ArticleInfo">
+          <Key>
+            <PropertyRef Name="ArticleId" />
+          </Key>
+          <Property Name="ArticleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ArticleTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ArticleContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ArticleDate" Type="DateTime" Precision="3" />
+          <Property Name="Author" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IsEnable" Type="Int32" />
+          <Property Name="IsTop" Type="Int32" />
+          <Property Name="IsNew" Type="Int32" />
+          <Property Name="IsHot" Type="Int32" />
+          <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AddUser" Type="Int32" />
+          <Property Name="MenuId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="BankInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="bankName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="bankValue" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ErrorInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="createtime" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="FlowInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="orderid" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ip" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="optypes" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="createtime" Type="DateTime" Precision="3" />
+          <Property Name="info" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MenuInfo">
+          <Key>
+            <PropertyRef Name="MenuId" />
+          </Key>
+          <Property Name="MenuId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MenuName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IsEnable" Type="Int32" />
+          <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MenuDate" Type="DateTime" Precision="3" />
+          <Property Name="AddUser" Type="Int32" />
+          <Property Name="OrderNum" Type="Int32" />
+        </EntityType>
+        <EntityType Name="OperInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userId" Type="Int32" Nullable="false" />
+          <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ip" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="createtime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="info" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="orderid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="batchno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="amount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="createtime" Type="DateTime" Precision="3" />
+          <Property Name="submittime" Type="DateTime" Precision="3" />
+          <Property Name="batchContent" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="uid" Type="Int32" />
+          <Property Name="orderstatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="iseable" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="updatetime" Type="DateTime" Precision="3" />
+          <Property Name="createBank" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="branchBank" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="branchBankZH" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="bankNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="belongTo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="api" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="loginId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="inputPerson" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PowerInfo">
+          <Key>
+            <PropertyRef Name="PowerId" />
+          </Key>
+          <Property Name="PowerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PowerName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MenuId" Type="Int32" />
+          <Property Name="IsEnable" Type="Int32" />
+          <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PowerDate" Type="DateTime" Precision="3" />
+          <Property Name="AddUser" Type="Int32" />
+          <Property Name="IsLeft" Type="Int32" />
+          <Property Name="PageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="OrderNum" Type="Int32" />
+        </EntityType>
+        <EntityType Name="RoleInfo">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PowerStr" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IsEnable" Type="Int32" />
+          <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="RoleDate" Type="DateTime" Precision="3" />
+          <Property Name="AddUser" Type="Int32" />
+          <Property Name="OrderNum" Type="Int32" />
+        </EntityType>
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="userId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="userPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="userPwd" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="roleId" Type="Int32" />
+          <Property Name="loginId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="createBank" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="branchBank" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="branchBankZH" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="bankNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="belongTo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="createtime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="updatetime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="iseable" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="api" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="isUpdatePass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="inputPerson" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="province" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="RakeBackDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ArticleInfo" EntityType="Self.ArticleInfo" />
+          <EntitySet Name="BankInfo" EntityType="Self.BankInfo" />
+          <EntitySet Name="ErrorInfo" EntityType="Self.ErrorInfo" />
+          <EntitySet Name="FlowInfo" EntityType="Self.FlowInfo" />
+          <EntitySet Name="MenuInfo" EntityType="Self.MenuInfo" />
+          <EntitySet Name="OperInfo" EntityType="Self.OperInfo" />
+          <EntitySet Name="OrderInfo" EntityType="Self.OrderInfo" />
+          <EntitySet Name="PowerInfo" EntityType="Self.PowerInfo" />
+          <EntitySet Name="RoleInfo" EntityType="Self.RoleInfo" />
+          <EntitySet Name="UserInfo" EntityType="Self.UserInfo" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RakeBackModelStoreContainer" CdmEntityContainer="RakeBackDBEntities">
+          <EntitySetMapping Name="ArticleInfo">
+            <EntityTypeMapping TypeName="RakeBackModel.ArticleInfo">
+              <MappingFragment StoreEntitySet="ArticleInfo">
+                <ScalarProperty Name="ArticleId" ColumnName="ArticleId" />
+                <ScalarProperty Name="ArticleTitle" ColumnName="ArticleTitle" />
+                <ScalarProperty Name="ArticleContent" ColumnName="ArticleContent" />
+                <ScalarProperty Name="ArticleDate" ColumnName="ArticleDate" />
+                <ScalarProperty Name="Author" ColumnName="Author" />
+                <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+                <ScalarProperty Name="IsTop" ColumnName="IsTop" />
+                <ScalarProperty Name="IsNew" ColumnName="IsNew" />
+                <ScalarProperty Name="IsHot" ColumnName="IsHot" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="AddUser" ColumnName="AddUser" />
+                <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BankInfo">
+            <EntityTypeMapping TypeName="RakeBackModel.BankInfo">
+              <MappingFragment StoreEntitySet="BankInfo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="bankName" ColumnName="bankName" />
+                <ScalarProperty Name="bankValue" ColumnName="bankValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ErrorInfo">
+            <EntityTypeMapping TypeName="RakeBackModel.ErrorInfo">
+              <MappingFragment StoreEntitySet="ErrorInfo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="message" ColumnName="message" />
+                <ScalarProperty Name="createtime" ColumnName="createtime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FlowInfo">
+            <EntityTypeMapping TypeName="RakeBackModel.FlowInfo">
+              <MappingFragment StoreEntitySet="FlowInfo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="orderid" ColumnName="orderid" />
+                <ScalarProperty Name="ip" ColumnName="ip" />
+                <ScalarProperty Name="optypes" ColumnName="optypes" />
+                <ScalarProperty Name="createtime" ColumnName="createtime" />
+                <ScalarProperty Name="info" ColumnName="info" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MenuInfo">
+            <EntityTypeMapping TypeName="RakeBackModel.MenuInfo">
+              <MappingFragment StoreEntitySet="MenuInfo">
+                <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+                <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+                <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="MenuDate" ColumnName="MenuDate" />
+                <ScalarProperty Name="AddUser" ColumnName="AddUser" />
+                <ScalarProperty Name="OrderNum" ColumnName="OrderNum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OperInfo">
+            <EntityTypeMapping TypeName="RakeBackModel.OperInfo">
+              <MappingFragment StoreEntitySet="OperInfo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="ip" ColumnName="ip" />
+                <ScalarProperty Name="createtime" ColumnName="createtime" />
+                <ScalarProperty Name="info" ColumnName="info" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderInfo">
+            <EntityTypeMapping TypeName="RakeBackModel.OrderInfo">
+              <MappingFragment StoreEntitySet="OrderInfo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="orderid" ColumnName="orderid" />
+                <ScalarProperty Name="batchno" ColumnName="batchno" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="createtime" ColumnName="createtime" />
+                <ScalarProperty Name="submittime" ColumnName="submittime" />
+                <ScalarProperty Name="batchContent" ColumnName="batchContent" />
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="orderstatus" ColumnName="orderstatus" />
+                <ScalarProperty Name="remark" ColumnName="remark" />
+                <ScalarProperty Name="iseable" ColumnName="iseable" />
+                <ScalarProperty Name="updatetime" ColumnName="updatetime" />
+                <ScalarProperty Name="createBank" ColumnName="createBank" />
+                <ScalarProperty Name="branchBank" ColumnName="branchBank" />
+                <ScalarProperty Name="branchBankZH" ColumnName="branchBankZH" />
+                <ScalarProperty Name="bankNumber" ColumnName="bankNumber" />
+                <ScalarProperty Name="belongTo" ColumnName="belongTo" />
+                <ScalarProperty Name="api" ColumnName="api" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="loginId" ColumnName="loginId" />
+                <ScalarProperty Name="inputPerson" ColumnName="inputPerson" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PowerInfo">
+            <EntityTypeMapping TypeName="RakeBackModel.PowerInfo">
+              <MappingFragment StoreEntitySet="PowerInfo">
+                <ScalarProperty Name="PowerId" ColumnName="PowerId" />
+                <ScalarProperty Name="PowerName" ColumnName="PowerName" />
+                <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+                <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="PowerDate" ColumnName="PowerDate" />
+                <ScalarProperty Name="AddUser" ColumnName="AddUser" />
+                <ScalarProperty Name="IsLeft" ColumnName="IsLeft" />
+                <ScalarProperty Name="PageUrl" ColumnName="PageUrl" />
+                <ScalarProperty Name="OrderNum" ColumnName="OrderNum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RoleInfo">
+            <EntityTypeMapping TypeName="RakeBackModel.RoleInfo">
+              <MappingFragment StoreEntitySet="RoleInfo">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="PowerStr" ColumnName="PowerStr" />
+                <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="RoleDate" ColumnName="RoleDate" />
+                <ScalarProperty Name="AddUser" ColumnName="AddUser" />
+                <ScalarProperty Name="OrderNum" ColumnName="OrderNum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserInfo">
+            <EntityTypeMapping TypeName="RakeBackModel.UserInfo">
+              <MappingFragment StoreEntitySet="UserInfo">
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="userPhone" ColumnName="userPhone" />
+                <ScalarProperty Name="userPwd" ColumnName="userPwd" />
+                <ScalarProperty Name="remark" ColumnName="remark" />
+                <ScalarProperty Name="roleId" ColumnName="roleId" />
+                <ScalarProperty Name="loginId" ColumnName="loginId" />
+                <ScalarProperty Name="createBank" ColumnName="createBank" />
+                <ScalarProperty Name="branchBank" ColumnName="branchBank" />
+                <ScalarProperty Name="branchBankZH" ColumnName="branchBankZH" />
+                <ScalarProperty Name="bankNumber" ColumnName="bankNumber" />
+                <ScalarProperty Name="belongTo" ColumnName="belongTo" />
+                <ScalarProperty Name="createtime" ColumnName="createtime" />
+                <ScalarProperty Name="updatetime" ColumnName="updatetime" />
+                <ScalarProperty Name="iseable" ColumnName="iseable" />
+                <ScalarProperty Name="api" ColumnName="api" />
+                <ScalarProperty Name="isUpdatePass" ColumnName="isUpdatePass" />
+                <ScalarProperty Name="inputPerson" ColumnName="inputPerson" />
+                <ScalarProperty Name="province" ColumnName="province" />
+                <ScalarProperty Name="city" ColumnName="city" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
