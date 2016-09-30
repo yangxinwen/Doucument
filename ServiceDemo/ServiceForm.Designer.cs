@@ -56,6 +56,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
             this.Name = "ServiceForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "WCF服务";
             this.ResumeLayout(false);
             this.PerformLayout();

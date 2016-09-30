@@ -25,7 +25,8 @@ namespace DAL
         protected virtual DbContext GetDbContext()
         {
             if (_dbContext == null)
-                _dbContext = new RakeBackDBEntities();
+                _dbContext = new RakeBackDBEntities();            
+            
             return _dbContext;
         }
 

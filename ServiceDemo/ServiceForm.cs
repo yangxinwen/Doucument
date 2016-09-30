@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Windows.Forms;
 using CommonUtls;
@@ -17,9 +18,12 @@ namespace ServiceDemo
         public ServiceForm()
         {
             InitializeComponent();
-            var dal = new UserInfoDal();
 
-            LogHelper.WriteLog("test");
+
+            ServiceHost host = new ServiceHost(typeof(RakeBackService.RakeBackService));
+            host.Open();
+
+
         }
     }
 }

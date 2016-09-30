@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "Model\DAL.csproj", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonUtls", "CommonUtls\CommonUtls.csproj", "{532020A3-467E-46D5-BD95-3A8118F0C4C4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RakeBackService", "RakeBackService\RakeBackService.csproj", "{6DA27534-9947-4E0F-92EC-9C1840750D2A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{532020A3-467E-46D5-BD95-3A8118F0C4C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{532020A3-467E-46D5-BD95-3A8118F0C4C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{532020A3-467E-46D5-BD95-3A8118F0C4C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DA27534-9947-4E0F-92EC-9C1840750D2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DA27534-9947-4E0F-92EC-9C1840750D2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DA27534-9947-4E0F-92EC-9C1840750D2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DA27534-9947-4E0F-92EC-9C1840750D2A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
